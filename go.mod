@@ -1,4 +1,4 @@
-module github.com/prometheus/promu
+module github.com/andrejbranch/promu
 
 go 1.19
 

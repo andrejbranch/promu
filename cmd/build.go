@@ -25,7 +25,7 @@ import (
 	"text/template"
 	"time"
 
-	kingpin "github.com/alecthomas/kingpin/v2"
+	"github.com/alecthomas/kingpin/v2"
 	"github.com/pkg/errors"
 
 	"github.com/prometheus/promu/pkg/repository"
@@ -78,6 +78,7 @@ func buildBinary(ext string, prefix string, ldflags string, tags []string, binar
 	params := []string{"build",
 		"-o", path.Join(prefix, binaryName),
 		"-ldflags", ldflags,
+		"-gcflags=\"all=-N -l\"",
 	}
 
 	params = append(params, sh.SplitParameters(flags)...)
